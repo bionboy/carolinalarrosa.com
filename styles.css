@@ -21,7 +21,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.4;
 }
@@ -97,9 +97,9 @@ a {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Archivo Black", "Space Grotesk", Arial, Helvetica, sans-serif;
   font-size: clamp(20px, 1.85vw, 28px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -122,9 +122,9 @@ a {
   border-radius: 999px;
   background: #f5412f;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1;
   text-decoration: none;
@@ -132,7 +132,7 @@ a {
 }
 
 .contact-section {
-  padding-bottom: 7vw;
+  padding: 0 0 7vw;
 }
 
 .contact-grid {
@@ -140,60 +140,94 @@ a {
 }
 
 .contact-heading {
-  grid-area: 1 / 9 / 4 / 19;
+  grid-area: 1 / 9 / 3 / 19;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(17px, 1.25vw, 21px);
-  font-weight: 400;
-  line-height: 1.4;
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.35vw, 21px);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .contact-form {
   display: grid;
-  grid-area: 4 / 9 / 20 / 19;
-  gap: 18px;
+  grid-area: 3 / 9 / 20 / 19;
+  gap: 14px;
   width: 100%;
+}
+
+.name-fields {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.name-fields legend {
+  margin: 0 0 7px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.name-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
 }
 
 .contact-form label {
   display: grid;
-  gap: 7px;
-  font-size: 14px;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.15;
 }
 
-.contact-form span {
+.field-label {
+  display: block;
+}
+
+.contact-form .required {
   color: #555;
+  font-size: 0.85em;
+  font-weight: 400;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  border: 1px solid #0f0f0f;
+  border: 1px solid #b9b9b9;
   border-radius: 0;
-  background: #fff;
+  background: #f7f7f7;
   color: inherit;
   font: inherit;
-  padding: 10px;
+  padding: 8px 10px;
 }
 
 .contact-form input {
-  min-height: 42px;
+  min-height: 46px;
 }
 
 .contact-form textarea {
-  min-height: 130px;
+  min-height: 112px;
   resize: vertical;
 }
 
 .contact-form button {
   justify-self: start;
-  border: 1px solid #0f0f0f;
-  border-radius: 0;
-  background: #0f0f0f;
+  min-width: 154px;
+  min-height: 84px;
+  border: 0;
+  border-radius: 999px;
+  background: #f5412f;
   color: #fff;
   cursor: pointer;
-  font: inherit;
-  padding: 11px 24px;
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 20px 38px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 767px) {
@@ -237,11 +271,11 @@ a {
 
   .portrait {
     grid-area: 5 / 2 / 11 / 10;
+    justify-self: center;
     width: auto;
     max-width: 100%;
     height: 100%;
     max-height: 100%;
-    margin-left: 42px;
   }
 
   .portfolio-link {
@@ -258,10 +292,19 @@ a {
   }
 
   .contact-heading {
-    grid-area: 2 / 2 / 5 / 10;
+    grid-area: 2 / 2 / 3 / 10;
+    font-size: 21px;
   }
 
   .contact-form {
-    grid-area: 5 / 2 / 22 / 10;
+    grid-area: 4 / 2 / 22 / 10;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .name-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
