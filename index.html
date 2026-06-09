@@ -254,8 +254,21 @@
         font-size: 16px;
       }
 
-      .contact-form.submitted .submit-message {
+      .contact-form.submitted .submit-message,
+      [data-fs-success]:not(:empty) {
         display: block;
+      }
+
+      [data-fs-error]:not(:empty) {
+        display: block;
+        margin-top: 8px;
+        color: #c32d38;
+        font-size: 14px;
+      }
+
+      [data-fs-submit-btn][disabled] {
+        opacity: 0.6;
+        cursor: wait;
       }
 
       @media (min-width: 768px) {
@@ -401,44 +414,48 @@
       <section class="section section--contact" aria-label="Contact">
         <div class="contact-inner">
           <h2 class="contact-title">Let’s get in touch!</h2>
-          <form class="contact-form" id="contact" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input type="hidden" name="_next" value="https://bionboy.github.io/carolinalarrosa.com/?success=true">
-            <input type="hidden" name="_subject" value="New submission from carolinalarrosa.com">
+          <div data-fs-success></div>
+          <div data-fs-error></div>
+
+          <form class="contact-form" id="contact">
             <div class="field name-field">
               <label>Name</label>
               <div class="name-row">
                 <span>
                   <span class="sub-label">First Name</span>
-                  <input type="text" name="first-name" autocomplete="given-name">
+                  <input type="text" name="first-name" autocomplete="given-name" data-fs-field>
                 </span>
                 <span>
                   <span class="sub-label">Last Name</span>
-                  <input type="text" name="last-name" autocomplete="family-name">
+                  <input type="text" name="last-name" autocomplete="family-name" data-fs-field>
                 </span>
               </div>
             </div>
             <div class="field">
               <label for="email">Email<span class="required">(required)</span></label>
-              <input id="email" type="email" name="email" autocomplete="email" required>
+              <input id="email" type="email" name="email" autocomplete="email" required data-fs-field>
+              <span data-fs-error="email"></span>
             </div>
             <div class="field">
               <label for="subject">Subject<span class="required">(required)</span></label>
-              <input id="subject" type="text" name="subject" required>
+              <input id="subject" type="text" name="subject" required data-fs-field>
+              <span data-fs-error="subject"></span>
             </div>
             <div class="field">
               <label for="message">Message<span class="required">(required)</span></label>
-              <textarea id="message" name="message" required></textarea>
+              <textarea id="message" name="message" required data-fs-field></textarea>
+              <span data-fs-error="message"></span>
             </div>
-            <button class="button submit" type="submit">Submit</button>
+            <button class="button submit" type="submit" data-fs-submit-btn>Submit</button>
             <p class="submit-message">Thank you!</p>
           </form>
         </div>
       </section>
     </main>
     <script>
-      if (window.location.search.includes('success=true')) {
-        document.getElementById('contact').classList.add('submitted');
-      }
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#contact', formId: 'meewkydr' });
     </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </body>
 </html>
