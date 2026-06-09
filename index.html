@@ -254,7 +254,7 @@
         font-size: 16px;
       }
 
-      .contact-form:target .submit-message {
+      .contact-form.submitted .submit-message {
         display: block;
       }
 
@@ -401,7 +401,9 @@
       <section class="section section--contact" aria-label="Contact">
         <div class="contact-inner">
           <h2 class="contact-title">Let’s get in touch!</h2>
-          <form class="contact-form" id="contact" action="#contact" method="get">
+          <form class="contact-form" id="contact" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_next" value="https://bionboy.github.io/carolinalarrosa.com/?success=true">
+            <input type="hidden" name="_subject" value="New submission from carolinalarrosa.com">
             <div class="field name-field">
               <label>Name</label>
               <div class="name-row">
@@ -433,5 +435,10 @@
         </div>
       </section>
     </main>
+    <script>
+      if (window.location.search.includes('success=true')) {
+        document.getElementById('contact').classList.add('submitted');
+      }
+    </script>
   </body>
 </html>
