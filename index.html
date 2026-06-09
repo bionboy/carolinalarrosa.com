@@ -1,18 +1,80 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The personal website of Carolina Larrosa.">
-    <title>Carolina Larrosa</title>
-    <link rel="canonical" href="https://carolinalarrosa.com/">
+    <meta name="description" content="Interactive Experience Designer Carolina Larrosa.">
+    <title>carolina larrosa</title>
+    <link rel="canonical" href="https://www.carolinalarrosa.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Archivo+Black&display=swap"
+    >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="site-shell">
-      <p class="eyebrow">carolinalarrosa.com</p>
-      <h1>Carolina Larrosa</h1>
-      <p class="intro">A new website is coming soon.</p>
+    <header class="site-header" aria-label="Site header">
+      <a class="site-title" href="./">carolina larrosa</a>
+      <a class="cart-link" href="cart" aria-label="Cart">0</a>
+    </header>
+
+    <main id="page">
+      <section class="hero" aria-label="Home page">
+        <div class="hero-grid">
+          <img
+            class="brand-art"
+            src="assets/carolina-larrosa-brand.png"
+            width="1492"
+            height="102"
+            alt="carolina larrosa"
+          >
+
+          <h1 class="role">Interactive Experience Designer</h1>
+
+          <img
+            class="portrait"
+            src="assets/carolina-larrosa-polaroid.png"
+            width="736"
+            height="1113"
+            alt="Polaroid portrait of Carolina Larrosa"
+          >
+
+          <a class="portfolio-link" href="s/CarolinaLarrosa_Portfolio_260211_WEB3.pdf" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <div class="contact-grid">
+          <h2 id="contact-heading" class="contact-heading">Let&rsquo;s get in touch!</h2>
+
+          <form class="contact-form" action="mailto:hello@carolinalarrosa.com" method="post" enctype="text/plain">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name">
+            </label>
+
+            <label>
+              Email <span>(required)</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+
+            <label>
+              Subject <span>(required)</span>
+              <input type="text" name="subject" required>
+            </label>
+
+            <label>
+              Message <span>(required)</span>
+              <textarea name="message" required></textarea>
+            </label>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
     </main>
   </body>
 </html>

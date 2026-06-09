@@ -1,52 +1,267 @@
 :root {
   color-scheme: light;
-  --background: #fbf7f1;
-  --foreground: #25201c;
-  --muted: #7a6f66;
-  --accent: #a35c43;
+  --background: #fff;
+  --foreground: #0f0f0f;
+  --site-gutter: 4vw;
+  --mobile-gutter: 6vw;
+  --site-max-width: 1500px;
+  --gap: 11px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at top left, #fffdf9 0, var(--background) 42rem);
+  background: var(--background);
   color: var(--foreground);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
-.site-shell {
-  width: min(100%, 48rem);
-  padding: 3rem 1.5rem;
+a {
+  color: inherit;
 }
 
-.eyebrow {
-  margin: 0 0 1rem;
-  color: var(--accent);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+.site-header {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2.5vw 3vw;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.site-title,
+.cart-link {
+  text-decoration: none;
+}
+
+.hero,
+.contact-section {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.hero {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hero-grid,
+.contact-grid {
+  --grid-gutter: calc(var(--site-gutter) - var(--gap));
+  --cell-max-width: calc((var(--site-max-width) - (var(--gap) * 23)) / 24);
+  --container-width: min(var(--site-max-width), calc(100vw - var(--site-gutter) * 2));
+  display: grid;
+  grid-template-columns:
+    minmax(var(--grid-gutter), 1fr)
+    repeat(24, minmax(0, var(--cell-max-width)))
+    minmax(var(--grid-gutter), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+}
+
+.hero-grid {
+  grid-template-rows: repeat(11, minmax(27.75px, auto));
+  min-height: 415px;
+}
+
+.brand-art {
+  display: block;
+  grid-area: 1 / 7 / 3 / 21;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  height: auto;
+}
+
+.role {
+  grid-area: 3 / 7 / 5 / 21;
+  align-self: start;
+  justify-self: stretch;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 1.85vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
-h1 {
-  margin: 0;
-  font-size: clamp(3rem, 12vw, 7rem);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
+.portrait {
+  display: block;
+  grid-area: 4 / 17 / 12 / 21;
+  align-self: center;
+  justify-self: start;
+  width: 100%;
+  height: auto;
 }
 
-.intro {
-  max-width: 32rem;
-  margin: 1.5rem 0 0;
-  color: var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  line-height: 1.6;
+.portfolio-link {
+  display: flex;
+  grid-area: 5 / 7 / 7 / 13;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  border-radius: 999px;
+  background: #f5412f;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.contact-section {
+  padding-bottom: 7vw;
+}
+
+.contact-grid {
+  grid-template-rows: repeat(19, minmax(calc(var(--container-width) * 0.0215), auto));
+}
+
+.contact-heading {
+  grid-area: 1 / 9 / 4 / 19;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(17px, 1.25vw, 21px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.contact-form {
+  display: grid;
+  grid-area: 4 / 9 / 20 / 19;
+  gap: 18px;
+  width: 100%;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+}
+
+.contact-form span {
+  color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid #0f0f0f;
+  border-radius: 0;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  padding: 10px;
+}
+
+.contact-form input {
+  min-height: 42px;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  border: 1px solid #0f0f0f;
+  border-radius: 0;
+  background: #0f0f0f;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  padding: 11px 24px;
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    padding: 6vw;
+    font-size: 15px;
+  }
+
+  .hero {
+    align-items: start;
+    padding-top: 23.5vh;
+  }
+
+  .hero-grid,
+  .contact-grid {
+    --grid-gutter: calc(var(--mobile-gutter) - var(--gap));
+    --cell-max-width: calc((var(--site-max-width) - (var(--gap) * 7)) / 8);
+    grid-template-columns:
+      minmax(var(--grid-gutter), 1fr)
+      repeat(8, minmax(0, var(--cell-max-width)))
+      minmax(var(--grid-gutter), 1fr);
+  }
+
+  .hero-grid {
+    grid-template-rows: repeat(17, 24px);
+    min-height: 0;
+  }
+
+  .contact-grid {
+    grid-template-rows: repeat(17, minmax(24px, auto));
+  }
+
+  .brand-art {
+    grid-area: 1 / 2 / 3 / 10;
+  }
+
+  .role {
+    grid-area: 3 / 2 / 5 / 10;
+    font-size: 24px;
+  }
+
+  .portrait {
+    grid-area: 5 / 2 / 11 / 10;
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin-left: 42px;
+  }
+
+  .portfolio-link {
+    grid-area: 11 / 3 / 13 / 9;
+    min-height: 56px;
+  }
+
+  .contact-section {
+    padding-bottom: 12vw;
+  }
+
+  .contact-grid {
+    grid-template-rows: repeat(21, minmax(24px, auto));
+  }
+
+  .contact-heading {
+    grid-area: 2 / 2 / 5 / 10;
+  }
+
+  .contact-form {
+    grid-area: 5 / 2 / 22 / 10;
+  }
 }
