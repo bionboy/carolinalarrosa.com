@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interactive Experience Designer Carolina Larrosa.">
+    <title>carolina larrosa</title>
+    <link rel="canonical" href="https://www.carolinalarrosa.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Archivo+Black&display=swap"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="site-title" href="./">carolina larrosa</a>
+      <a class="cart-link" href="cart" aria-label="Cart">0</a>
+    </header>
+
+    <main id="page">
+      <section class="hero" aria-label="Home page">
+        <div class="hero-grid">
+          <img
+            class="brand-art"
+            src="assets/carolina-larrosa-brand.png"
+            width="1492"
+            height="102"
+            alt="carolina larrosa"
+          >
+
+          <h1 class="role">Interactive Experience Designer</h1>
+
+          <img
+            class="portrait"
+            src="assets/carolina-larrosa-polaroid.png"
+            width="736"
+            height="1113"
+            alt="Polaroid portrait of Carolina Larrosa"
+          >
+
+          <a class="portfolio-link" href="s/CarolinaLarrosa_Portfolio_260211_WEB3.pdf" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <div class="contact-grid">
+          <h2 id="contact-heading" class="contact-heading">Let&rsquo;s get in touch!</h2>
+
+          <form class="contact-form" action="mailto:hello@carolinalarrosa.com" method="post" enctype="text/plain">
+            <div class="name-fields" role="group" aria-labelledby="name-label">
+              <div id="name-label" class="name-legend">Name</div>
+
+              <div class="name-row">
+                <div class="name-field">
+                  <label for="first-name">First Name</label>
+                  <input id="first-name" type="text" name="first-name" autocomplete="given-name">
+                </div>
+
+                <div class="name-field">
+                  <label for="last-name">Last Name</label>
+                  <input id="last-name" type="text" name="last-name" autocomplete="family-name">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="email">Email <span class="required">(required)</span></label>
+              <input id="email" type="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="subject">Subject <span class="required">(required)</span></label>
+              <input id="subject" type="text" name="subject" required>
+            </div>
+
+            <div class="form-field">
+              <label class="field-label" for="message">Message <span class="required">(required)</span></label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
